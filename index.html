@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .task{
+        display: flex;
+        flex-direction: row;
+     
+
+        justify-content: space-around;
+        margin: 20px auto;
+      
+      }
+
+      .task button{
+        background-color:blue;
+        color: white;
+        border-radius: 20px;
+        padding: 5px;
+        height: 30px;
+        margin: auto auto;
+      }
+
+      .task p{
+        border:2px black solid;
+        width: fit-content;
+        margin: auto auto;
+
+        padding: 10px;
+      }
+
+      .form{
+        display: flex;
+        flex-direction:column;
+        width: fit-content;
+        margin: auto auto;
+      }
+
+      h1{
+        text-align: center;
+      }
+
+      .adder{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+
+      .adder button{
+        background-color:blue;
+        color: white;
+        border-radius: 20px;
+        padding: 5px;
+        height: 30px;
+        margin: auto auto;
+
+      }
+    </style>
+    
+</head>
+<body>
+    <div class="form">
+        <h1>BUILD TO-DO LIST</h1>
+        <div class="adder">
+           <input type="text" id="taskInput" placeholder="Add some task">
+        <button onclick="addTask()">ADD</button>
+
+        </div>
+       
+        <div id="taskList"></div>
+    </div>
+    <script>
+        function addTask() {
+            const task = document.getElementById("taskInput").value;
+            if (task.length > 0) {
+                document.getElementById("taskList").innerHTML += "<div class='task'>" + "<p>"+task+"</p>" +"<button onclick='deleteTask(this)'>DELETE</button></div>";
+            }
+            document.getElementById("taskInput").value = "";
+        }
+        function deleteTask(element) {
+            element.parentElement.remove();
+        }
+    </script>
+</body>
+</html>
